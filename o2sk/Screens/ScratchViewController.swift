@@ -12,6 +12,8 @@ class ScratchViewController: UIViewController {
 
     let scratchCompletion: (ScratchCard) -> Void
     let card: ScratchCard
+    
+    var scratchTask: Task<Void, Error>? = nil
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -26,6 +28,12 @@ class ScratchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        scratchTask?.cancel()
+        scratchTask = nil
     }
     
     func setup() {
@@ -51,7 +59,11 @@ class ScratchViewController: UIViewController {
     
     // MARK: - IBActions
     @objc func scratchButtonTapped() {
-        let card = ScratchCard(code: card.code, state: .scratched)
-        scratchCompletion(card)
+        scratchTask?.cancel()
+        scratchTask = Task {
+            try await Task.sleep(nanoseconds: 3_000_000_000)
+            let card = ScratchCard(code: self.card.code, state: .scratched)
+            self.scratchCompletion(card)
+        }
     }
 }
