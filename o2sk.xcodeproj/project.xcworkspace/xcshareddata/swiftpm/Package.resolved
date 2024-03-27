@@ -1,4 +1,5 @@
 {
+  "originHash" : "d5450604dd0dd5af62103ae6a1fa6788bea0ed9c04ed6e9bb7f276c1aebbf022",
   "pins" : [
     {
       "identity" : "atlantis",
@@ -10,5 +11,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
