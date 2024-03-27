@@ -33,4 +33,6 @@ final class o2skTests: XCTestCase {
             }
         }
     }
+    
+    //TODO: additionally test view logic, but there's no time at this moment
 }
