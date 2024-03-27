@@ -18,4 +18,8 @@ struct ActivationResponseModel: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.ios = try container.decode(String.self, forKey: .ios)
     }
+    
+    init(ios: String) {
+        self.ios = ios
+    }
 }

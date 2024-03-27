@@ -9,8 +9,8 @@ import Foundation
 
 class ActivationValidator {
     func isActivationValidFrom(response: ActivationResponseModel) -> Bool {
-        if let doulbe = Double(response.ios) {
-            return doulbe > 6.1
+        if let double = Double(response.ios) {
+            return double > 6.1
         } else {
             return false
         }

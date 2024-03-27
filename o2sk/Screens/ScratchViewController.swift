@@ -61,7 +61,7 @@ class ScratchViewController: UIViewController {
     @objc func scratchButtonTapped() {
         scratchTask?.cancel()
         scratchTask = Task {
-            try await Task.sleep(nanoseconds: 3_000_000_000)
+            try await Task.sleep(nanoseconds: 3_000_000_000) // simulate 3 seconds delay
             let card = ScratchCard(code: self.card.code, state: .scratched)
             self.scratchCompletion(card)
         }
